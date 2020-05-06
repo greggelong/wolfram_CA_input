@@ -54,8 +54,8 @@ function draw() {
 }
 
 function getNextGen() {
-  loadPixels(); // just to look, no need to update, as they are set with point.; 
-  // first look at all the pixels in the current gen
+  //loadPixels(); // just to look, no need to update, as they are set with point.; 
+  // first look at all the pixels in the current gen// actually don't need this
   for (let i = 1; i < width - 1; i++) { //looping through line of pixels
     let leftP = get((i - 1), generation); // get left pixel val
     let iP = get(i, generation); // get this pixel val
