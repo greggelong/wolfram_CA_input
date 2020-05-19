@@ -1,4 +1,4 @@
-let generation = 0;
+ let generation = 0;
 //let rules = [0, 0, 0, 1, 1, 1, 1, 0]; // 30
 //let rules = [1,0,1,1,0,1,1,0];  //182
 let rules;
@@ -7,14 +7,15 @@ let myinput;
 
 function setup() {
   para = createP(rules);
-  myinput = createInput("105");
+  myinput = createInput("30");
   myinput.changed(setBinRule);
   setBinRule();
-  createCanvas(windowWidth - 10, windowHeight - 10);
+  createCanvas(windowWidth, windowHeight);
   background(0);
   stroke(255, 255, 0)
   // set the first dot in the zero generatioin   
   point(width / 2, generation);
+  
 }
 
 
@@ -26,7 +27,7 @@ function setBinRule() {
   let mask = "00000000" // a mask to get the extra zeros
   let c = mask.slice(0, 8 - b.length); // slice to get the right number of zeros 
   // if b = "11" then c = "000000"
-  let binstring = c + b;  // binary string so 3 will give 00000011 8 bits
+  let binstring = c + b; // binary string so 3 will give 00000011 8 bits
 
   rules = int(binstring.split("")); // is an aray of ints so [0,0,0,0,0,0,1,1]
   console.log(rules);
@@ -35,6 +36,12 @@ function setBinRule() {
   // set the first dot in the zero generatioin   
   generation = 0; // reset generation
   point(width / 2, generation);
+  //if (int(myinput.value() % 2 == 1)) { // put two extra dots for odd rules
+   // for (let y = 1; y < height; y++) {
+   //   point(0, y)
+   // }
+
+ // }
   loop();
 
 
@@ -47,19 +54,40 @@ function draw() {
   generation++; // update generation
   para.html(generation)
 
-  if (generation > height - 100) { // stop it 
+  if (generation > height - 10) { // stop it 
     noLoop();
 
   }
 }
 
 function getNextGen() {
-  //loadPixels(); // just to look, no need to update, as they are set with point.; 
-  // first look at all the pixels in the current gen// actually don't need this
-  for (let i = 1; i < width - 1; i++) { //looping through line of pixels
-    let leftP = get((i - 1), generation); // get left pixel val
-    let iP = get(i, generation); // get this pixel val
-    let rightP = get((i + 1), generation); // get right pixel val    
+  // to get the edge cases we have to make these have a wider scope
+  // we can not use % modulo in javascrip as it works diffently to python for negative numbers 
+  let leftP;
+  let iP;
+  let rightP; // wider scope
+  //loadPixels(); // just to look, no need to update, as they are set with point.; // actuall don't need to call this
+  // first look at all the pixels in the current gen
+
+  
+  for (let i = 0; i < width; i++) { //looping through line of pixel
+    if (i === 0) {
+      leftP = get(width-1, generation); // edge caseget left pixel val with -1 because pixels start with 0 so 0-299
+      //print("boom", leftP, width);
+    } else {
+      leftP = get((i - 1), generation); // get left pixel val
+    }
+    iP = get(i, generation); // get this pixel val
+
+    if (i === width) {
+
+      rightP = get(0, generation); // edge case get right pixel val    
+
+    } else {
+
+      rightP = get((i + 1), generation); // get right pixel val 
+
+    }
     let binary = "";
     // set an empty binay number of three digits
     // left,middle,right 000 - 111 
