@@ -1,21 +1,35 @@
- let generation = 0;
+// added a checkbox for random initial state
+
+let generation = 0;
 //let rules = [0, 0, 0, 1, 1, 1, 1, 0]; // 30
 //let rules = [1,0,1,1,0,1,1,0];  //182
 let rules;
 let para; // for html
 let myinput;
+let myCheckbox;
 
 function setup() {
   para = createP(rules);
+  
   myinput = createInput("30");
   myinput.changed(setBinRule);
+  myCheckbox = createCheckbox("Rand first state",false);
+  myCheckbox.changed(setBinRule);
+  print(myCheckbox.checked())
   setBinRule();
   createCanvas(windowWidth, windowHeight);
   background(0);
   stroke(255, 255, 0)
-  // set the first dot in the zero generatioin   
-  point(width / 2, generation);
+  // set the first 1 dot or random dots in the zero generatioin 
   
+  if(myCheckbox.checked()){
+    for (let i =0; i< width/4; i++){
+    
+      point(random(width),generation);
+    }
+    }else{
+      point(width / 2, generation);
+  }
 }
 
 
@@ -35,13 +49,19 @@ function setBinRule() {
   stroke(255, 255, 0)
   // set the first dot in the zero generatioin   
   generation = 0; // reset generation
-  point(width / 2, generation);
-  //if (int(myinput.value() % 2 == 1)) { // put two extra dots for odd rules
-   // for (let y = 1; y < height; y++) {
-   //   point(0, y)
-   // }
+  // set single dot or random dots for first generation
+  
+   // set the first 1 dot or random dots in the zero generatioin 
+  
+  if(myCheckbox.checked()){
+    for (let i =0; i< width/4; i++){
+    
+      point(random(width),generation);
+    }
+    }else{
+      point(width / 2, generation);
+  }
 
- // }
   loop();
 
 
@@ -133,4 +153,6 @@ function getNextGen() {
    // held in index 0 and binary 111 is 7 so we much subtract
    // to get the right index. 
     
+    
+  
   */
