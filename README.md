@@ -5,4 +5,6 @@ a little web app to show wolfram one dimensional cellular automata with p5js.  T
 
 here is the code on the p5 web editor it is not working there either on firefox
 
+but it is working on chrome must be some firefox isser nto the favicon issue I thought it was
+
 https://editor.p5js.org/greggelong/sketches/Xi_4lrU6M
