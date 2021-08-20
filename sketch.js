@@ -17,7 +17,7 @@ function setup() {
   myCheckbox.changed(setBinRule);
   print(myCheckbox.checked())
   setBinRule();
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(800, 800);
   background(0);
   stroke(255, 255, 0)
   // set the first 1 dot or random dots in the zero generatioin 
