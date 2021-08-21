@@ -9,9 +9,11 @@ let myinput;
 let myCheckbox;
 
 function setup() {
+  pixelDensity(1);
   para = createP(rules);
   
-  myinput = createInput("30");
+  
+  myinput = createInput(30);
   myinput.changed(setBinRule);
   myCheckbox = createCheckbox("Rand first state",false);
   myCheckbox.changed(setBinRule);
