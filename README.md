@@ -5,6 +5,22 @@ a little web app to show wolfram one dimensional cellular automata with p5js.  T
 
 here is the code on the p5 web editor it is not working there either on firefox
 
-but it is working on chrome must be some firefox isser nto the favicon issue I thought it was
+but it is working on chrome must be some firefox  the favicon issue I thought it was
 
 https://editor.p5js.org/greggelong/sketches/Xi_4lrU6M
+
+works on chrome with an old version of p5 in chrome and edge 
+
+was working on android.
+
+must have something to do with the pixel array and how it is read off the canvas
+
+the best solution would be to not get update information from this as it changes over platforms
+
+but rather calculate it from an array as I have done in python
+
+I really wanted to skip that step but the multi platform nature of javaScript coding
+
+makes that impractical.   This is not the days of the C64 when memory locations were actual
+
+states of the microchips.  
