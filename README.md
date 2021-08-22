@@ -24,3 +24,6 @@ I really wanted to skip that step but the multi platform nature of javaScript co
 makes that impractical.   This is not the days of the C64 when memory locations were actual
 
 states of the microchips.  
+
+# have made another version not using pixel array in the process of makeing the web app but live here:
+https://editor.p5js.org/greggelong/sketches/6hhgYWHON
