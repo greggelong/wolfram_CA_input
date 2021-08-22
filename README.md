@@ -25,5 +25,5 @@ makes that impractical.   This is not the days of the C64 when memory locations 
 
 states of the microchips.  
 
-### have made another version not using pixel array in the process of makeing the web app but live here:
+### have made another version not using pixel array in the process of making the web app but live here:
 https://editor.p5js.org/greggelong/sketches/6hhgYWHON
